@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Optional custom styling for better visual appearance */
+    .container {
+      margin-top: 20px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+    }
+
+    table {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Task Form Section -->
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Task</h1>
+      <form>
+        <div class="form-row">
+          <!-- Assigned Input -->
+          <div class="form-group col-md-6">
+            <label for="assigned">Assigned</label>
+            <input type="text" class="form-control" id="assigned" placeholder="Enter Assigned">
+          </div>
+          <!-- Comment Input -->
+          <div class="form-group col-md-6">
+            <label for="comment">Comment</label>
+            <input type="text" class="form-control" id="comment" placeholder="Enter Comment">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Priority Dropdown -->
+          <div class="form-group col-md-6">
+            <label for="priority">Priority</label>
+            <select class="form-control" id="priority">
+              <option value="High">High</option>
+              <option value="Normal">Normal</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <!-- Status Dropdown -->
+          <div class="form-group col-md-6">
+            <label for="status">Status</label>
+            <select class="form-control" id="status">
+              <option value="Completed">Completed</option>
+              <option value="Incomplete">Incomplete</option>
+              <option value="Progress">Progress</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Date Input -->
+          <div class="form-group col-md-12">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" placeholder="Select Date">
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Task Table Section -->
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Task Table</h1>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Assigned</th>
+              <th scope="col">Comment</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Status</th>
+              <th scope="col">Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let StudentItem of StudentArray">
+              <td>{{StudentItem.assigned}}</td>
+              <td>{{StudentItem.comment}}</td>
+              <td>{{StudentItem.priority}}</td>
+              <td>{{StudentItem.status}}</td>
+              <td>{{StudentItem.date}}</td>
+              <td>
+                <button type="button" class="btn btn-success btn-sm" (click)="setUpdate(StudentItem)">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="setDelete(StudentItem)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
